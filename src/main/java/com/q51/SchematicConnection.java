@@ -171,7 +171,7 @@ class SchematicConnection {
 					break;
 		case GRND : al.add(new Location(322, 345,  12, 24)); // GND
 					break;
-		case TR5ES	: al.add(new Location(292, 260,  18, 22)); // Connect TR5 Emitters together
+		case TR5ES	: al.add(new Location(292, 260,  18, 22)); // Connect TR5 emitters together
 					break;
 		case XU1B:	al.add(new Location( 73, 100,  18, 22)); // There is a connection to the bottom of the Xu (Right)
 					break;

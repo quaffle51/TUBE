@@ -35,6 +35,7 @@ public class SymbolPanel extends JPanel {
 	private String symbol;
 	private ButtonGroup group = null;
 	private SymbolPanelListener symbolPanelListener;
+
 	public SymbolPanel(String title) {
 
 		for (int i = 0; i < symbols.length; i++) {
@@ -189,7 +190,7 @@ public class SymbolPanel extends JPanel {
 	public String getSymbol() {
 		return symbol;
 	}
-	
+
 	public String getSymbol(int index) {
 		if (index >= 0 & index < symbols.length) {
 			return symbols[index];
@@ -198,14 +199,13 @@ public class SymbolPanel extends JPanel {
 		}
 		return null;
 	}
-	
+
 	public void setSymbol(int index) {
 		if (index >= 0 & index < symbols.length) {
 			symbol = symbols[index];
 		} else {
 			System.err.println("WARNING: index out of range!");
 		}
-		
+
 	}
 }
-

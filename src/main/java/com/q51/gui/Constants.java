@@ -26,10 +26,8 @@ public class Constants {
 	public static final int DOWN = 2;
 	public static final int RIGHT = 3;
 
-	public static final int[] PAD_ROWS = { 1, 1, 1, 1, 3, 3, 4, 4, 4, 4, 4, 6, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9,
-			10, 10, 10, 10, 10, 11, 11, 11, 11, 12, 13, 13, 13, 13 };
-	public static final int[] PAD_COLUMNS = { 4, 6, 8, 12, 10, 12, 1, 4, 5, 7, 8, 1, 4, 7, 9, 12, 1, 4, 7, 9, 12, 7, 8,
-			9, 12, 1, 4, 7, 8, 9, 4, 7, 8, 9, 11, 4, 6, 8, 12 };
+	public static final int[] PAD_ROWS    = { 1, 1, 1,  1,  3,  3, 4, 4, 4, 4, 4, 6, 7, 7, 7,  7, 8, 8, 8, 8,  8, 9, 9, 9,  9, 10, 10, 10, 10, 10, 11, 11, 11, 11, 12, 13, 13, 13, 13 };
+	public static final int[] PAD_COLUMNS = { 4, 6, 8, 12, 10, 12, 1, 4, 5, 7, 8, 1, 4, 7, 9, 12, 1, 4, 7, 9, 12, 7, 8, 9, 12,  1,  4,  7,  8,  9,  4,  7,  8,  9, 11,  4,  6,  8, 12 };
 
 	public static final int ALPHA = 127;
 	public static Color RED = new Color(255, 0, 0, ALPHA);
