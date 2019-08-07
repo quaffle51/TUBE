@@ -18,6 +18,14 @@ public class Constants {
 	public static final String IMAGE_DIRECTORY_PREFIX = "src/main/resources/Images/";
 	public static final String BLOCK_DIRECTORY_PREFIX = "src/main/resources/block_";
 	public static final String JSON_FILENAME = "src/main/resources/json/ula.json";
+	
+	
+	public static final int NUMBER_OF_BLOCK_ROWS = 3;
+	public static final int NUMBER_OF_BLOCK_COLS = 3;
+	//Add constants for number of cell rows and number of cell columns in each block
+	public static final int BLOCK_ROW_COUNT = 13;
+	public static final int BLOCK_COL_COUNT = 12;
+	
 
 	public static final int NUMBER_OF_TILES = 15;
 	public static final int TILE_SIDE_LENGTH = 26;

@@ -156,6 +156,7 @@ public class MainFrame extends JFrame {
 		});
 
 		symbolPanel.setSymbolPanelListener(new SymbolPanelListener() {
+			@SuppressWarnings("deprecation")
 			public void symbolPanelEventOccurred(SymbolPanelEvent e) {
 				String name = e.getName();
 				JRadioButton[] rb = e.getRb();
@@ -186,12 +187,20 @@ public class MainFrame extends JFrame {
 					Point p = new Point(x / Constants.TILE_SIDE_LENGTH, y / Constants.TILE_SIDE_LENGTH);
 					Boolean pad = false;
 					Point[] q = Constants.getPadLocations();
-					for (int i = 0; i < q.length; i++) {
-						if (p.equals(q[i])) {
-							pad = true;
-							break;
+
+					int rowCellIndex = this.getCellRowIndex(keyPrefix);
+					int colCellIndex = this.getCellColIndex(keyPrefix);
+					
+					if ( !(rowCellIndex == 0 | rowCellIndex == Constants.BLOCK_ROW_COUNT - 1) && !(colCellIndex == 0 | colCellIndex == Constants.BLOCK_COL_COUNT - 1)) {
+						for (int i=0; i<q.length; i++) {
+							if (p.equals(q[i])) {
+								pad = true;
+								break;
+							}
 						}
 					}
+					
+					
 					if (!pad) {
 						String name = symbolPanel.getName();
 						String symbol = symbolPanel.getSymbol(Integer.parseInt(name));
@@ -238,6 +247,14 @@ public class MainFrame extends JFrame {
 				default:
 					System.err.println("Error: Unknown mouse action occurred!");
 				}
+			}
+			
+			private int getCellRowIndex(String keyPrefix) {
+				return Integer.parseInt(keyPrefix.substring(5, 7)); // index of cell row 	
+			}
+			
+			private int getCellColIndex(String keyPrefix) {
+				return Integer.parseInt(keyPrefix.substring(7, 9)); // index of cell column	
 			}
 		});
 

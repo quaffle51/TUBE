@@ -29,12 +29,14 @@ public class HighlightTile extends JLabel {
         Rectangle drawRectangle = new Rectangle(0, 0, matrixCell.getWidth(), matrixCell.getHeight());
         
         g2d.drawImage(matrixCell, drawRectangle.x, drawRectangle.y, this);
-        
+
 		if (rect != null && highlight) {
 
+			//System.err.println("keyPrefix = " + keyPrefix + "\t" + "row=" + this.getCellRowIndex(keyPrefix) + ", col=" + this.getCellColIndex(keyPrefix));
 			// Draw the symbol
 			String  symbolName   = symbolPanel.getName();                 // Name of the currently selected symbol
 			Image[] symbolImages = symbolPanel.getSelectedImages();       // Images of the "Selected symbols" 
+			@SuppressWarnings("deprecation")
 			Image   symbolImage  = symbolImages[new Integer(symbolName)]; // The image of the currently selected symbol
 			
 			int x = (int)rect.getX();
@@ -42,16 +44,21 @@ public class HighlightTile extends JLabel {
 			Point p = new Point(x/Constants.TILE_SIDE_LENGTH,y/Constants.TILE_SIDE_LENGTH);
 			Boolean pad = false;
 			Point[] q = Constants.getPadLocations();
-
-			for (int i=0; i<q.length; i++) {
-				if (p.equals(q[i])) {
-					pad = true;
-					break;
+			
+			int rowCellIndex = this.getCellRowIndex(keyPrefix);
+			int colCellIndex = this.getCellColIndex(keyPrefix);
+			
+			if ( !(rowCellIndex == 0 | rowCellIndex == Constants.BLOCK_ROW_COUNT - 1) && !(colCellIndex == 0 | colCellIndex == Constants.BLOCK_COL_COUNT - 1)) {
+				
+				for (int i=0; i<q.length; i++) {
+					if (p.equals(q[i])) {
+						pad = true;
+						break;
+					}
 				}
 			}
-
 			
-			g2d.drawImage(symbolImage, x, y, null); //Draw the currently selected symbol onto the matrix_cell
+			g2d.drawImage(symbolImage, x, y, null); //Highlight the currently selected symbol onto the matrix_cell
 			
 			// Highlight the cell
 			g2d.setColor(new Color(0,0,255, 64));
@@ -66,6 +73,7 @@ public class HighlightTile extends JLabel {
 					System.exit(0);
 				}
 			} else {
+				
 				if (symbolName != null && symbolName != "0") {
 					if (symbolImage != null) {
 						g2d.drawImage(symbolImage, (int)rect.getY()*Constants.TILE_SIDE_LENGTH, (int)rect.getX()*Constants.TILE_SIDE_LENGTH, null);
@@ -85,5 +93,13 @@ public class HighlightTile extends JLabel {
 	
 	public Graphics2D getGraphics() {
 		return g2d;
+	}
+	
+	private int getCellRowIndex(String keyPrefix) {
+		return Integer.parseInt(keyPrefix.substring(5, 7)); // index of cell row 	
+	}
+	
+	private int getCellColIndex(String keyPrefix) {
+		return Integer.parseInt(keyPrefix.substring(7, 9)); // index of cell column	
 	}
 }

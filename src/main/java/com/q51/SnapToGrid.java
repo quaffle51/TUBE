@@ -21,6 +21,7 @@ public class SnapToGrid extends JPanel implements MouseMotionListener{
     private final int gridSize = 26;
 
     SnapToGrid() {
+  
         camera = new int[2];
         mouse  = new int[2];
         setFocusable(true);

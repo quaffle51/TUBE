@@ -39,7 +39,7 @@ public class Controller {
 		
 		mySqlDatabase = sqlHandler.getRowsMySql();
 		
-		System.out.println( "INFO: Size of ulaConnection is: " + ulaConnections.size() + ".");
+		System.out.println("INFO: Size of ulaConnection is:  " + ulaConnections.size() + ".");
 		System.out.println("INFO: Size of MySql database is: " + sqlHandler.getRowCountMySql());
 	}
 	
@@ -74,11 +74,11 @@ public class Controller {
 		int tileRowIndex = Integer.parseInt(key.substring(10, 12)); // index of tile row
 		int tileColIndex = Integer.parseInt(key.substring(12)); // index of tile column
 
-		int nBlockCols = 3;
-		int nCellCols = 10;
-		int nCellRows = 11;
-		int nTileCols = 15;
-		int nTileRows = 15;
+		int nBlockCols = Constants.NUMBER_OF_BLOCK_COLS;
+		int nCellCols = Constants.BLOCK_COL_COUNT;
+		int nCellRows = Constants.BLOCK_ROW_COUNT;
+		int nTileCols = Constants.NUMBER_OF_TILES;
+		int nTileRows = Constants.NUMBER_OF_TILES;
 
 		int numberOfCells = nCellCols * nCellRows;
 		int numberOfTiles = nTileCols * nTileRows;

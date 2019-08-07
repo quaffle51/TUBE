@@ -127,7 +127,7 @@ public class MatrixCell extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		drawGrid();
-		drawColouredPads();
+		//drawColouredPads();
 	}
 
 	private void drawColouredPads() {
@@ -226,6 +226,7 @@ public class MatrixCell extends JPanel {
 		ImagePixels.restorePixels(block_r_c_cell_r_c, imagePixels, rect);
 		String nameOfConnection = symbolPanel.getName(); // the name of the currently selected connection symbol
 		Image[] images = symbolPanel.getSelectedImages(); // the array of possible selected images
+		@SuppressWarnings("deprecation")
 		Image image = images[new Integer(nameOfConnection)]; // this is the symbol image
 		g2d.drawImage(image, (int) rect.getX(), (int) rect.getY(), null); 
 		drawGrid();

@@ -63,8 +63,8 @@ public class LocationPanel extends JPanel {
 		blockColLbl.setDisplayedMnemonic(KeyEvent.VK_C);
 		blockColLbl.setLabelFor(blockColCombo);
 
-		// Each "block" has 11 rows of matrix-cells
-		final ComboCategory[] cellRows = new ComboCategory[11];
+		// Each "block" has 13 rows of matrix-cells
+		final ComboCategory[] cellRows = new ComboCategory[Constants.BLOCK_ROW_COUNT];
 		for (int i = 0; i < cellRows.length; i++) {
 			cellRows[i] = new ComboCategory(i, Integer.toString(i));
 		}
@@ -81,7 +81,8 @@ public class LocationPanel extends JPanel {
 		cellRowLbl.setDisplayedMnemonic(KeyEvent.VK_R);
 		cellRowLbl.setLabelFor(cellRowCombo);
 
-		final ComboCategory[] cellCols = new ComboCategory[10];
+		// Each "block" has 12 columns of matrix-cells
+		final ComboCategory[] cellCols = new ComboCategory[Constants.BLOCK_COL_COUNT];
 		for (int i = 0; i < cellCols.length; i++) {
 			cellCols[i] = new ComboCategory(i, Integer.toString(i));
 		}
